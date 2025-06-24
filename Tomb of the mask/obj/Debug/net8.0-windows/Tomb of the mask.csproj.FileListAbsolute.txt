@@ -1,0 +1,14 @@
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\bin\Debug\net8.0-windows\Tomb of the mask.exe
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\bin\Debug\net8.0-windows\Tomb of the mask.deps.json
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\bin\Debug\net8.0-windows\Tomb of the mask.runtimeconfig.json
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\bin\Debug\net8.0-windows\Tomb of the mask.dll
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\bin\Debug\net8.0-windows\Tomb of the mask.pdb
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.AssemblyInfoInputs.cache
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.AssemblyInfo.cs
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.csproj.CoreCompileInputs.cache
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.dll
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\refint\Tomb of the mask.dll
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.pdb
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.genruntimeconfig.cache
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\ref\Tomb of the mask.dll
