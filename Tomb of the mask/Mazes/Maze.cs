@@ -33,7 +33,7 @@ namespace Tomb_of_the_mask.Mazes
             levelNumber = number;
             _isGameOver = false;
             IsNextLevel = false;
-            var levelData = LevelLoader.LoadLevelData(_projectPath, 3);
+            var levelData = LevelLoader.LoadLevelData(_projectPath, number);
             _width = levelData.Width;
             _height = levelData.Height;
             _grid = new char[_width, _height];
