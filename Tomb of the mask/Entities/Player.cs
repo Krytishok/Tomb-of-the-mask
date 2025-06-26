@@ -1,6 +1,6 @@
 using System.Drawing;
 using Tomb_of_the_mask.Mazes;
-
+using Tomb_of_the_mask.Core;
 namespace Tomb_of_the_mask.Entities
 {
     public class Player
@@ -11,7 +11,7 @@ namespace Tomb_of_the_mask.Entities
     
         private float _targetX;
         private float _targetY;
-        private float _moveSpeed = 0.5f; // Скорость перемещения (меньше = плавнее)
+        private float _moveSpeed = 0.6f; // Скорость перемещения (меньше = плавнее)
     
         public bool IsMoving => X != _targetX || Y != _targetY;
 
@@ -32,7 +32,7 @@ namespace Tomb_of_the_mask.Entities
             
         }
         
-        public void Move(int dx, int dy, Maze maze)
+        public void Move(int dx, int dy, Maze maze, Game game)
         {
             float newX = X;
             float newY = Y;
@@ -45,6 +45,8 @@ namespace Tomb_of_the_mask.Entities
             {
                 Coin nextCoin = new Coin(Convert.ToInt16(newX + dx), Convert.ToInt16(newY + dy));
                 CollectedCoins.Add(nextCoin);
+                
+                
                 newX += dx;
                 newY += dy;
                 
@@ -60,10 +62,14 @@ namespace Tomb_of_the_mask.Entities
             _targetY = newY;
             InitializeRotation(newX, newY);
             
+            
             foreach (var coin in CollectedCoins)
             {
                 maze.RemoveCoin(coin);
+                
             }
+
+            maze.RemoveCoins(CollectedCoins);
             if (maze.IsObstacle((Convert.ToInt16(newX + dx)), Convert.ToInt16(newY + dy)))
             {
                 _sprite = _deadstate;

@@ -12,3 +12,4 @@ C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8
 C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.pdb
 C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.genruntimeconfig.cache
 C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\ref\Tomb of the mask.dll
+C:\Users\Илья\RiderProjects\Tomb of the mask\Tomb of the mask\obj\Debug\net8.0-windows\Tomb of the mask.sourcelink.json

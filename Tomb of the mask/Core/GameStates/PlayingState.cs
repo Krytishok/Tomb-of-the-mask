@@ -22,6 +22,7 @@ namespace Tomb_of_the_mask.Core.GameStates
         {
             _game.Player.Draw(g);
             _game.Maze.Draw(g, _game.CellSize);
+            _game.RenderUI(g);
             
         }
         
@@ -48,7 +49,7 @@ namespace Tomb_of_the_mask.Core.GameStates
             
             void MovePlayerUntilWall(int dx, int dy)
             {
-                player.Move(dx, dy, maze);
+                player.Move(dx, dy, maze, _game);
             }
             
         }

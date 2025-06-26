@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Tomb_of_the_mask.Core;
+using Tomb_of_the_mask.Entities;
 using Tomb_of_the_mask.Mazes;
 
 namespace Tomb_of_the_mask
@@ -127,6 +128,7 @@ namespace Tomb_of_the_mask
                 _game.InitializeMaze(2);
                 _game.InitializePlayer();
             }
+            
         }
 
 

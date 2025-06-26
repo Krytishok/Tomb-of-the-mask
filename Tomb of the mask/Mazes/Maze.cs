@@ -17,7 +17,9 @@ namespace Tomb_of_the_mask.Mazes
         public bool IsNextLevel { get; set; }
     
         private char[,] _grid;
-        private List<Coin> _coins;
+        public List<Coin> _coins {get; set;}
+        public int _collectedCoins {get; set;}
+        public int _totalCoins {get; set;}
         
         public bool _isGameOver { get; private set; }
         
@@ -31,7 +33,7 @@ namespace Tomb_of_the_mask.Mazes
             levelNumber = number;
             _isGameOver = false;
             IsNextLevel = false;
-            var levelData = LevelLoader.LoadLevelData(_projectPath, number);
+            var levelData = LevelLoader.LoadLevelData(_projectPath, 3);
             _width = levelData.Width;
             _height = levelData.Height;
             _grid = new char[_width, _height];
@@ -65,8 +67,14 @@ namespace Tomb_of_the_mask.Mazes
 
         public void RemoveCoin(Coin coin)
         {
+            if (_grid[coin.X, coin.Y] == 'C')
+            {
+                _collectedCoins++;
+            }
             _grid[coin.X, coin.Y] = '.';
         }
+        
+        
 
         public void RemoveCoins(List<Coin> coins)
         {
@@ -87,6 +95,7 @@ namespace Tomb_of_the_mask.Mazes
                     if (_grid[x, y] == 'C')
                     {
                         _coins.Add(new Coin(x, y));
+                        _totalCoins++;
                     }
                 }
             }
@@ -130,6 +139,8 @@ namespace Tomb_of_the_mask.Mazes
                             x * cellSize + cellSize / 2, 
                             y * cellSize + cellSize / 2,
                             cellSize / 5, cellSize / 5);
+                        
+                        
                     }
                     if (_grid[x, y] == 'X')
                     {

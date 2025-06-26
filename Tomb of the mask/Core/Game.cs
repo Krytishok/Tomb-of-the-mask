@@ -22,28 +22,36 @@ namespace Tomb_of_the_mask.Core
         private int _height;
         private int _cellSize = 32; // Размер одной клетки в пикселях
         
+        public int HighScore { get; private set; }
+        
         // Состояния игры
         private GameState _currentState;
         
         private bool _gameRunning = false;
         
+        public int TotalCoins { get; private set; }
+        public int CollectedCoins { get; private set; }
+        
+        private Font _font = new Font("Arial", 14, FontStyle.Bold);
+        private Brush _textBrush = Brushes.Gold;
+        private Point _coinCounterPos = new Point(10, 5);
+        
         public Game(int width, int height)
         {
             _width = width;
             _height = height;
-            Console.WriteLine(_width);
-            Console.WriteLine(_height);
             
             Initialize();
         }
 
         public void CollectCoin(Coin coin)
         {
-            _collectedCoins.Add(coin);
+            CollectedCoins += 1;
         }
         
         private void Initialize()
         {
+            HighScore = SaveManager.LoadHighScore();
             // Создаем лабиринт (10x10 клеток для примера)
             int mazeWidth = _width / _cellSize;
             int mazeHeight = _height / _cellSize;
@@ -56,6 +64,8 @@ namespace Tomb_of_the_mask.Core
             
             // Устанавливаем начальное состояние
             _currentState = new PlayingState(this);
+            
+            TotalCoins = _maze._coins.Count;
         }
 
         public Player InitializePlayer()
@@ -110,6 +120,52 @@ namespace Tomb_of_the_mask.Core
             _height = height;
             // Можно добавить логику пересчета при изменении размеров
         }
+        
+        public void RenderUI(Graphics g)
+        {
+            CollectedCoins = _maze._collectedCoins;
+            // Рисуем счетчик монет
+            string coinText = $"{CollectedCoins}/{TotalCoins}";
+        
+            // Фон для читаемости
+            g.FillRectangle(new SolidBrush(Color.FromArgb(150, 0, 0, 0)), 
+                _coinCounterPos.X - 10, 
+                _coinCounterPos.Y - 5, 
+                100, 30);
+        
+            // Иконка монеты
+            g.FillEllipse(Brushes.Gold, _coinCounterPos.X, _coinCounterPos.Y, 20, 20);
+            g.DrawEllipse(Pens.DarkGoldenrod, _coinCounterPos.X, _coinCounterPos.Y, 20, 20);
+        
+            // Текст счета
+            g.DrawString(coinText, _font, _textBrush, _coinCounterPos.X + 25, _coinCounterPos.Y + 2);
+            
+            RenderHighScore(g);
+        }
+        
+        private void RenderHighScore(Graphics g)
+        {
+            string highScoreText = $"Рекорд: {HighScore}";
+            SizeF textSize = g.MeasureString(highScoreText, _font);
+        
+            Point pos = new Point(
+                this._width - (int)textSize.Width - 30, 
+                5);
+        
+            // Фон
+            g.FillRectangle(new SolidBrush(Color.FromArgb(150, 0, 0, 0)), 
+                pos.X - 10, 
+                pos.Y - 5, 
+                textSize.Width + 20, 
+                textSize.Height + 10);
+        
+            // Текст
+            g.DrawString(highScoreText, _font, Brushes.Gold, pos);
+            
+            CheckCoinCollection();
+        
+            
+        }
 
         
         
@@ -118,6 +174,20 @@ namespace Tomb_of_the_mask.Core
         public Maze Maze => _maze;
         public int CellSize => _cellSize;
         
-        public void InitializeMaze(int number) => _maze = new Maze(number);
+        public void InitializeMaze(int number)
+        {
+            _maze = new Maze(number);
+            TotalCoins = _maze._coins.Count;
+        }
+        
+        public void CheckCoinCollection()
+        {
+            if (_maze._collectedCoins > HighScore)
+            {
+                HighScore = _maze._collectedCoins;
+                SaveManager.SaveHighScore(HighScore);
+            }
+            
+        }
     }
 }
