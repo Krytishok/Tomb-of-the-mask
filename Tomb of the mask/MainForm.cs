@@ -125,7 +125,7 @@ namespace Tomb_of_the_mask
             if (_game.Maze.IsNextLevel )
             {
                 Console.WriteLine("Next level");
-                _game.InitializeMaze(2);
+                _game.InitializeMaze(_game.Maze.levelNumber+1);
                 _game.InitializePlayer();
             }
             

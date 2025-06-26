@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tomb of the mask")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e54ab5221aa630a6fd754c11d36581a69975200")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac0316de201b7d3b616a2550fc8836dad2985553")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tomb of the mask")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tomb of the mask")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
